@@ -1,0 +1,355 @@
+:root {
+    --clr-1: hsl(0, 0%, 100%);
+    --clr-2: hsl(0, 0%, 78%);
+    --clr-3: hsl(0, 0%, 55%);
+    --clr-4: hsl(0, 0%, 33%);
+    --clr-5: hsl(0, 0%, 22%);
+    --clr-6: hsl(0, 0%, 0%);
+}
+
+body {
+    margin: 0;
+    background-image: url("./background.png");
+}
+
+.page {
+    height: 100dvh;
+    width: 100%;
+    backdrop-filter: blur(10px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inventory-box {
+    position: relative;
+}
+
+.border-left,
+.border-right {
+    position: absolute;
+    width: 8px;
+    height: 640px;
+}
+
+.border-top,
+.border-bottom {
+    position: absolute;
+    height: 8px;
+    width: 680px;
+}
+
+.border-top,
+.border-left {
+    background-color: var(--clr-1);
+}
+
+.border-right,
+.border-bottom {
+    background-color: var(--clr-4);
+}
+
+.border-top {
+    right: 0px;
+    top: -12px;
+    border-top: 4px solid var(--clr-6);
+}
+
+.border-right {
+    right: -12px;
+    top: 0px;
+    border-right: 4px solid var(--clr-6);
+}
+
+.border-bottom {
+    bottom: -12px;
+    right: 0px;
+    border-bottom: 4px solid var(--clr-6);
+}
+
+.border-left {
+    left: -12px;
+    border-left: 4px solid var(--clr-6);
+    top: 0px;
+}
+
+.top-left-corner {
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    width: 8px;
+    height: 8px;
+    background-color: var(--clr-1);
+    border-top: 4px solid var(--clr-6);
+    border-left: 4px solid var(--clr-6);
+}
+
+.top-left-corner::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: -8px;
+
+    width: 4px;
+    height: 4px;
+    background-color: var(--clr-1);
+    border-left: 4px solid var(--clr-6);
+}
+
+.top-left-corner::after {
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: 0px;
+
+    width: 4px;
+    height: 4px;
+    background-color: var(--clr-1);
+    border-top: 4px solid var(--clr-6);
+}
+
+.bottom-right-corner {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: var(--clr-4);
+    bottom: -8px;
+    right: -8px;
+    border-bottom: 4px solid var(--clr-6);
+    border-right: 4px solid var(--clr-6);
+}
+
+.bottom-right-corner::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: -8px;
+
+    width: 8px;
+    height: 8px;
+    background-color: var(--clr-4);
+    border-right: 4px solid var(--clr-6);
+}
+
+.bottom-right-corner::after {
+    content: "";
+    position: absolute;
+    right: 0px;
+    bottom: -8px;
+
+    width: 8px;
+    height: 8px;
+    background-color: var(--clr-4);
+    border-bottom: 4px solid var(--clr-6);
+}
+
+.top-right-corner {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    width: 4px;
+    height: 4px;
+    background-color: var(--clr-2);
+}
+
+.top-right-corner::before {
+    content: "";
+    position: absolute;
+    top: -4px;
+    right: 0px;
+    width: 4px;
+    height: 4px;
+    background-color: var(--clr-6);
+}
+
+.top-right-corner::after {
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: -4px;
+    width: 4px;
+    height: 4px;
+    background-color: var(--clr-6);
+}
+
+.bottom-left-corner {
+    position: absolute;
+    bottom: -4px;
+    left: -4px;
+    width: 4px;
+    height: 4px;
+    background-color: var(--clr-2);
+}
+
+.bottom-left-corner::before {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0px;
+    width: 4px;
+    height: 4px;
+    background-color: var(--clr-6);
+}
+
+.bottom-left-corner::after {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    left: -4px;
+    width: 4px;
+    height: 4px;
+    background-color: var(--clr-6);
+}
+
+.inventory {
+    background-color: var(--clr-2);
+    padding: 16px;
+    padding-right: 8px;
+
+    display: grid;
+    gap: 16px;
+}
+
+.slot {
+    position: relative;
+
+    width: 64px;
+    height: 64px;
+    background-color: var(--clr-3);
+    border-width: 4px;
+    border-style: solid;
+    border-top-color: var(--clr-5);
+    border-left-color: var(--clr-5);
+    border-bottom-color: var(--clr-1);
+    border-right-color: var(--clr-1);
+}
+
+.slot:hover {
+    background-color: hsl(from var(--clr-3) h s 70%);
+}
+
+.slot::before,
+.player-slot::before {
+    content: "";
+    position: absolute;
+    left: -4px;
+    bottom: -4px;
+    background-color: var(--clr-3);
+    width: 4px;
+    height: 4px;
+}
+
+.slot::after,
+.player-slot::after {
+    content: "";
+    position: absolute;
+    right: -4px;
+    top: -4px;
+    background-color: var(--clr-3);
+    width: 4px;
+    height: 4px;
+}
+
+.player-slot {
+    position: relative;
+    width: 196px;
+    height: 280px;
+    background-color: var(--clr-6);
+
+    border-width: 4px;
+    border-style: solid;
+    border-top-color: var(--clr-5);
+    border-left-color: var(--clr-5);
+    border-bottom-color: var(--clr-1);
+    border-right-color: var(--clr-1);
+}
+
+.inventory-top {
+    display: flex;
+    gap: 12px;
+}
+
+.player-equipment {
+    display: flex;
+    justify-content: left;
+    align-items: end;
+}
+
+.armor-slots {
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: 1;
+}
+
+.inventory-slots,
+.hotbar-slots {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    justify-items: left;
+    width: calc(64px * 9 + 18 * 4px);
+    /*gap: 10px;*/
+}
+
+.inventory-crafting {
+    display: flex;
+    gap: 8px;
+
+    margin-top: 40px;
+    height: calc(64px * 2 + 4px * 2);
+}
+
+.crafting-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.arrow {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    margin-top: 48px;
+}
+
+.slot.craft-result {
+    margin-top: 40px;
+}
+
+.arrow-line {
+    background-color: var(--clr-3);
+    height: 4px;
+}
+
+.arrow-line.al-1px {
+    width: calc(1 * 4px);
+    margin-right: calc(6 * 4px);
+}
+
+.arrow-line.al-2px {
+    width: calc(2 * 4px);
+    margin-right: calc(5 * 4px);
+}
+
+.arrow-line.al-3px {
+    width: calc(3 * 4px);
+    margin-right: calc(4 * 4px);
+}
+
+.arrow-line.al-4px {
+    width: calc(4 * 4px);
+    margin-right: calc(3 * 4px);
+}
+
+.arrow-line.al-5px {
+    width: calc(5 * 4px);
+    margin-right: calc(2 * 4px);
+}
+
+.arrow-line.al-15px {
+    width: calc(15 * 4px);
+    margin-right: calc(1 * 4px);
+}
+
+.arrow-line.al-16px {
+    width: calc(16 * 4px);
+}
